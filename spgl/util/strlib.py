@@ -60,10 +60,7 @@ def html_decode(encoded_html):
                        .replace('&amp;', '&')
 
 def html_encode(plain_html):
-    return plain_html.replace('&', '&amp;') \
-                     .replace('<', '&lt;') \
-                     .replace('>', '&gt;') \
-                     .replace('"', '&quot;')
+    return html.escape(plain_html)
 
 def url_encode(string):
     # TODO make sure this is consistent with CPP lib
