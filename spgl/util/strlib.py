@@ -7,6 +7,7 @@ included by default with Python strings.
 """
 import string as _string
 import urllib.parse as _parse
+import html
 
 _STRING_DELIMITERS = ",:)}]\n"
 
@@ -54,10 +55,7 @@ def quote_string(string, force_quotes=True):
     return '"{}"'.format(string.translate(trans))
 
 def html_decode(encoded_html):
-    return encoded_html.replace('&lt;', '<') \
-                       .replace('&gt;', '>') \
-                       .replace('&quot;', '"') \
-                       .replace('&amp;', '&')
+    return html.unescape(encoded_html)
 
 def html_encode(plain_html):
     return html.escape(plain_html)
